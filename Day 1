@@ -1,0 +1,67 @@
+# Derivation of the OLS Estimator
+
+In the OLS setup, we aim to estimate the parameter vector \( \boldsymbol{\beta} \) in the linear regression model:
+
+\[
+\mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon}
+\]
+
+where:
+- \( \mathbf{y} \) is an \( n \times 1 \) vector of observations on the dependent variable,
+- \( \mathbf{X} \) is an \( n \times k \) matrix of explanatory variables,
+- \( \boldsymbol{\beta} \) is a \( k \times 1 \) vector of coefficients to be estimated, and
+- \( \boldsymbol{\epsilon} \) is an \( n \times 1 \) vector of error terms.
+
+## Objective
+
+The objective of OLS is to minimize the sum of squared residuals:
+
+\[
+S(\boldsymbol{\beta}) = \sum_{i=1}^n \left( y_i - \mathbf{x}_i^{\top} \boldsymbol{\beta} \right)^2
+\]
+
+or, in matrix notation:
+
+\[
+S(\boldsymbol{\beta}) = (\mathbf{y} - \mathbf{X} \boldsymbol{\beta})^{\top} (\mathbf{y} - \mathbf{X} \boldsymbol{\beta})
+\]
+
+## Step 1: Expand the Objective Function
+
+Expanding \( S(\boldsymbol{\beta}) \):
+
+\[
+S(\boldsymbol{\beta}) = \mathbf{y}^{\top} \mathbf{y} - 2 \boldsymbol{\beta}^{\top} \mathbf{X}^{\top} \mathbf{y} + \boldsymbol{\beta}^{\top} \mathbf{X}^{\top} \mathbf{X} \boldsymbol{\beta}
+\]
+
+## Step 2: Take the Derivative with Respect to \( \boldsymbol{\beta} \)
+
+To find the value of \( \boldsymbol{\beta} \) that minimizes \( S(\boldsymbol{\beta}) \), take the derivative with respect to \( \boldsymbol{\beta} \) and set it equal to zero:
+
+\[
+\frac{\partial S(\boldsymbol{\beta})}{\partial \boldsymbol{\beta}} = -2 \mathbf{X}^{\top} \mathbf{y} + 2 \mathbf{X}^{\top} \mathbf{X} \boldsymbol{\beta} = 0
+\]
+
+Simplifying, we get:
+
+\[
+\mathbf{X}^{\top} \mathbf{X} \boldsymbol{\beta} = \mathbf{X}^{\top} \mathbf{y}
+\]
+
+## Step 3: Solve for \( \boldsymbol{\beta} \)
+
+Assuming \( \mathbf{X}^{\top} \mathbf{X} \) is invertible, we can solve for \( \boldsymbol{\beta} \):
+
+\[
+\boldsymbol{\beta} = (\mathbf{X}^{\top} \mathbf{X})^{-1} \mathbf{X}^{\top} \mathbf{y}
+\]
+
+## Conclusion
+
+Thus, the OLS estimator for \( \boldsymbol{\beta} \) is:
+
+\[
+\hat{\boldsymbol{\beta}} = (\mathbf{X}^{\top} \mathbf{X})^{-1} \mathbf{X}^{\top} \mathbf{y}
+\]
+
+This is the closed-form solution for the OLS estimator.
